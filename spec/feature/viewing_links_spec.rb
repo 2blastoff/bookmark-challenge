@@ -5,6 +5,7 @@ feature 'Viewing Links' do
   scenario 'See a list of links on homepage' do
     Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
 
+
         visit '/links'
 
         # as this is our first feature test,
@@ -14,6 +15,11 @@ feature 'Viewing Links' do
 
         # why do we use within here?
         # might we get a false positive if we just test for 'Makers Academy'?
+
+        visit '/links'
+
+        expect(page.status_code).to eq 200
+
         within 'ul#links' do
           expect(page).to have_content('Makers Academy')
         end
