@@ -13,6 +13,7 @@ gem 'dm-postgres-adapter'
 gem 'rerun'
 gem 'database_cleaner'
 gem 'dm-transactions'
+gem 'rake'
 
 
 # gem "rails"
