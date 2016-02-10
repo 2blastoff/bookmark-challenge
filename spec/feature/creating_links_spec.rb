@@ -1,5 +1,3 @@
-require 'capybara/rspec'
-require 'capybara/dsl'
 
 feature 'save a website' do
   scenario 'add the sites address and title to my bookmark manager' do

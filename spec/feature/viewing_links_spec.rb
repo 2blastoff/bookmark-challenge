@@ -1,5 +1,3 @@
-require 'capybara/rspec'
-require 'capybara/dsl'
 
 feature 'Viewing Links' do
   scenario 'See a list of links on homepage' do

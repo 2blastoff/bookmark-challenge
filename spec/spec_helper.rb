@@ -1,10 +1,9 @@
 ENV['RACK_ENV'] = 'test'
 
+require 'rspec'
 require 'capybara/rspec'
+require 'capybara/dsl'
 require './app/app.rb'
-
-
-# ENV['RACK_ENV'] = 'test'
 require 'database_cleaner'
 
 #
