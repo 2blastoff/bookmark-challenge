@@ -16,7 +16,10 @@ ENV["RACK_ENV"] ||= "development"
   end
 
   post '/links' do
-    Link.create(url: params[:url], title: params[:title])
+    link = Link.new(url: params[:url], title: params[:title])
+    tag = Tag.create(name: params[:name])
+    link.tags << tag
+    link.save
     redirect to('/links')
   end
 
