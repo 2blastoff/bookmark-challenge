@@ -5,8 +5,14 @@
   </head>
 
   <body>
+    <%=flash.now[:goodbye]%>
+  
+
     <% if current_user %>
     Welcome, <%= current_user.name%>
+    <form action= '/log_out' method= "POST">
+      <input type= 'submit' value= "Log out">
+    </form>
     <% end %>
     <%= yield %>
   </body>

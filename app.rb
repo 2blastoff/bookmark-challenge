@@ -11,7 +11,7 @@ class Bookmarks < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user || User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
@@ -30,6 +30,12 @@ class Bookmarks < Sinatra::Base
       link.tags << Tag.first_or_create(name: (tag.capitalize))
     end
     link.save
+    redirect('/links')
+  end
+
+  post '/log_out' do
+    session[:user_id] = nil
+    flash.keep[:goodbye] = "You have successfully logged out"
     redirect('/links')
   end
 
@@ -73,7 +79,7 @@ class Bookmarks < Sinatra::Base
       flash.now[:invaliduser] = 'Invalid password'
       erb :log_in
     end
-end
+  end
 
   #An altnerative way of doing it by identifying the tag first.
   # get '/tags/:name' do
